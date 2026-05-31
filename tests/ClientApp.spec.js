@@ -22,7 +22,25 @@ test.only('Browser Context First PlayWright Test', async ({ page }) => {
         }
         
     }
-    await page.pause()
+    await page.locator("[routerlink*='cart']").click()
+    await page.locator("div li").first().waitFor()
+    const productIsPresent = await page.locator("h3:has-text(productName)").isVisible()
+    expect(productIsPresent).toBeTruthy()
+    await page.locator("text=Checkout").click()
+    await page.locator("[placeholder*='Country']").pressSequentially("ind")
+    const dropDown = page.locator("section.ta-results")
+    await dropDown.waitFor()
+    optionCount = await dropDown.locator("button").count()
+    for(let i=0; i<optionCount; i++)
+    {
+        buttonText = dropDown.locator("button").nth(i).textContent()
+        if (buttonText.includes("India"))
+            {
+                await dropDown.locator("button").nth(i).click()
+                breakl̥
+            }
+    }
+
 }
 );
 
