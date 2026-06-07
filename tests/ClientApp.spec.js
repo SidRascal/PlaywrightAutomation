@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Browser Context First PlayWright Test', async ({ page }) => {
+test('Browser Context First PlayWright Test', async ({ page }) => {
     const products = page.locator(".card-body")
     const productName = "iphone 13 pro"
     const email = "test1.user1@gmail.com"

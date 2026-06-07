@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('@Website client App Login', async ({ page }) => {
+test('Website client App Login with special locators', async ({ page }) => {
     const products = page.locator(".card-body")
     const productName = "iphone 13 pro"
     const email = "test1.user1@gmail.com"
@@ -37,7 +37,6 @@ test.only('@Website client App Login', async ({ page }) => {
     await expect(page.getByText('THANKYOU FOR THE ORDER.')).toBeVisible()
 
 
-    ī
 }   
 );
 
